@@ -1,0 +1,9 @@
+{
+  "training_only": true,
+  "components": {
+    "faro-csv-parser": {
+      "version": "1.0.0",
+      "installed": false
+    }
+  }
+}

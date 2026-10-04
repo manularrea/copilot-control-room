@@ -1,0 +1,4 @@
+2026-10-02T23:00:00Z batch=close-17 attempt=1 input_events=8 load_status=completed
+2026-10-02T23:00:01Z batch=close-17 ack=timeout
+2026-10-02T23:00:02Z batch=close-17 attempt=2 input_events=8 load_status=completed
+Synthetic operational logs: transport success does not prove correct business totals.

@@ -1,0 +1,12 @@
+{
+  "business_day": "2026-10-02",
+  "totals_minor": {
+    "COP": 23000,
+    "USD": 2500
+  },
+  "unique_events": 8,
+  "inserted_per_attempt": [
+    8,
+    0
+  ]
+}

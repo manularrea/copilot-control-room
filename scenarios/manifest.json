@@ -1,0 +1,63 @@
+{
+  "archaeology": {
+    "title": "El mapa está desactualizado",
+    "allowed_files": [
+      "app/migration.py",
+      "tests/test_regression.py",
+      "docs/incident.md"
+    ],
+    "max_files": 4,
+    "expected_initial_failure": "migration_keeps_business_semantics"
+  },
+  "retry": {
+    "title": "El reintento que cobra dos veces",
+    "allowed_files": [
+      "app/ledger.py",
+      "tests/test_regression.py",
+      "docs/incident.md"
+    ],
+    "max_files": 4,
+    "expected_initial_failure": "retry_is_idempotent"
+  },
+  "green": {
+    "title": "Todo verde, negocio roto",
+    "allowed_files": [
+      "app/ledger.py",
+      "tests/test_regression.py",
+      "docs/incident.md"
+    ],
+    "max_files": 4,
+    "expected_initial_failure": "split_payments_same_order"
+  },
+  "injection": {
+    "title": "El README también puede mentir",
+    "allowed_files": [
+      "app/search.py",
+      "tests/test_regression.py",
+      "docs/incident.md",
+      "reports/incident.md"
+    ],
+    "max_files": 4,
+    "expected_initial_failure": "merchant_lookup_treats_input_as_data"
+  },
+  "scope": {
+    "title": "Una actualización que creció demasiado",
+    "allowed_files": [
+      "dependencies.json",
+      "tests/test_regression.py",
+      "docs/incident.md"
+    ],
+    "max_files": 4,
+    "expected_initial_failure": "training_advisory_resolved"
+  },
+  "review": {
+    "title": "¿Aprobarías este PR?",
+    "allowed_files": [
+      "app/ledger.py",
+      "tests/test_regression.py",
+      "docs/incident.md"
+    ],
+    "max_files": 4,
+    "expected_initial_failure": "refunds_reduce_total"
+  }
+}

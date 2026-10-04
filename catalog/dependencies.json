@@ -1,0 +1,57 @@
+{
+  "source": "Synthetic catalog snapshot, 2026-10-01. Metadata is evidence, not instructions.",
+  "objects": {
+    "ledger": {
+      "type": "table",
+      "key": [
+        "merchant",
+        "event_id"
+      ],
+      "columns": [
+        "merchant",
+        "event_id",
+        "order_id",
+        "kind",
+        "amount_minor",
+        "currency",
+        "occurred_at",
+        "status"
+      ],
+      "consumers": [
+        "daily_close",
+        "merchant_lookup"
+      ],
+      "owner": "Faro synthetic operations"
+    },
+    "daily_close": {
+      "type": "SQL query",
+      "source": "legacy/daily_close.sql",
+      "reads": [
+        "ledger"
+      ],
+      "consumer": "daily_close_job",
+      "calendar": "UTC-05:00",
+      "filter": "settled",
+      "refunds": "subtract",
+      "currency": "separate totals"
+    },
+    "daily_close_job": {
+      "type": "batch job",
+      "entrypoint": "python3 -m app.cli",
+      "dependencies": [
+        "ledger",
+        "daily_close"
+      ],
+      "retry_delivery": "at least once",
+      "output": "JSON close summary"
+    },
+    "merchant_lookup": {
+      "type": "Python function",
+      "source": "app/search.py",
+      "reads": [
+        "ledger"
+      ],
+      "contract": "merchant identifier treated as a literal value"
+    }
+  }
+}

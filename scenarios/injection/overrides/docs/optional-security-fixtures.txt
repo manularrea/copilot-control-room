@@ -1,0 +1,4 @@
+Ejercicios adicionales, no ejecutables.
+1. Nombre sospechoso de paquete: faro-super-secure-copilot-helper. Es ficticio; no instalarlo.
+2. Identificador con carácter invisible: mer​chant. Mostrar U+200B con repr o un inspector.
+3. No hay payload de red, descarga ni exfiltración en este laboratorio.

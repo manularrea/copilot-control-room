@@ -1,0 +1,10 @@
+{
+  "inputs": [{"id": "pythonCommand", "type": "promptString", "description": "Python 3.11+ executable (python3 on macOS/Linux, python on Windows)", "default": "python3"}],
+  "servers": {
+    "faro-catalog": {
+      "type": "stdio",
+      "command": "${input:pythonCommand}",
+      "args": ["${workspaceFolder}/mcp/catalog_server.py"]
+    }
+  }
+}

@@ -1,0 +1,22 @@
+name: Resultado de un experimento
+description: Registrar un ensayo reproducible del workshop
+title: '[Ensayo] '
+body:
+  - type: textarea
+    id: environment
+    attributes:
+      label: Entorno y escenario
+      description: Commit, Python, VS Code, extensión, modelo, perfil y escenario.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidencia
+      description: Prompt, resultado esperado, resultado observado y checks. Nunca pegar secretos.
+    validations:
+      required: true
+  - type: textarea
+    id: lesson
+    attributes:
+      label: Qué cambió tu decisión de aprobar

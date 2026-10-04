@@ -1,0 +1,26 @@
+name: Workshop quality
+on:
+  push:
+    branches: [main, 'demo/**']
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    strategy:
+      matrix:
+        python: ['3.11', '3.12']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '${{ matrix.python }}'
+      - name: Legacy smoke suite
+        run: python -m unittest discover -s tests -v
+      - name: Business acceptance of the main application
+        run: python -I -B evaluation/verify.py --candidate . --scenario retry
+      - name: Validate scenarios, recovery, scope and MCP protocol
+        run: python -m unittest discover -s tests_tooling -v

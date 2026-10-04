@@ -1,0 +1,9 @@
+.workshop/
+__pycache__/
+*.py[cod]
+.venv/
+runtime/
+reports/
+.env
+*.db
+.DS_Store
