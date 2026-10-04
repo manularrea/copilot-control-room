@@ -81,6 +81,8 @@ def reconcile(db, day):
     for row in db.execute('SELECT * FROM ledger'):
         if row['status'] != 'settled' or business_day(row['occurred_at']) != day:
             continue
+        if row['kind'] == 'refund':
+            continue
         currency = row['currency']
         sign = -1 if row['kind'] == 'refund' else 1
         totals[currency] = totals.get(currency, 0) + sign * row['amount_minor']
